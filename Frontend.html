@@ -74,11 +74,25 @@
                     "<td class='abc'>" + object[i].address + "</td>" +
                     "<td class='abc'>" + object[i].DOB + "</td>";;
             }
-
-
-
         }
-      
+
+        function onDelete() { 
+            var element5 = document.getElementById("rowNum");
+            document.getElementById("dataTable").deleteRow(element5.value);
+            
+            for (let i = 1; i < object.length; i++) { 
+                delete object[i].accountId
+                delete  object[i].accountName
+                delete  object[i].address 
+                delete object[i].DOB 
+                
+                
+                
+            }
+            
+            
+        }
+                 
     </script>
 </head>
 
@@ -140,13 +154,16 @@
             </div>
             <button style="position: relative; right: 200px; top : 50px; padding : 10px 100px 10px; background-color: lightslategrey; color:rgb(250, 225, 0) "
                 onclick="retrieveData()">Submit</button>
+                <input type = "number" id = rowNum  placeholder="Enter Row Num" style="position: relative; top: 130px;">
+                <button style="position: relative; left : 5px; top : 130px;" onclick =" onDelete()">Delete</button>
 
-
+                        
         </div>
     </div>
 
     <div style="border:black; border-width:2px; border-style:solid;padding-bottom: 100px; position: relative ;top :220px; background-color: royalblue;">
         <div id="msg1" style="text-align: center;"></div>
+
 
         <table id="dataTable">
 
