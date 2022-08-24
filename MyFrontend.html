@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .abc {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: auto;
+        }
+
+        .xyz {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: auto;
+        }
+
+        body{
+            background-image: url("bank-icon-5.png");
+            background-repeat: no-repeat;
+            background-position: top right;
+            background-size: 400px 500px;
+        }
+        
+        .heading{
+            text-align:center;
+            background-color:black;
+            color: white;
+        }
+
+                
+    </style>
+
+    <script>
+        var num = 0;
+
+        object = [];
+
+        function retrieveData() {
+            var element1 = document.getElementById("accId");
+            var element2 = document.getElementById("accName");
+            var element3 = document.getElementById("adr");
+            var element4 = document.getElementById("dob");
+
+            var temp = {
+
+                order: num,
+                accountId: element1.value,
+                accountName: element2.value,
+                address: element3.value,
+                DOB: element4.value,
+
+
+            };
+            num++;
+            object.push(temp);
+
+            var output = document.getElementById("dataTable")
+
+            output.innerHTML = "<tr><th class='xyz'>Sr.No.</th>" +
+                "<th class='xyz'>ActID</th>" +
+                "<th class='abc'>ActName</th>" +
+                "<th class='abc'>Address</th>" +
+                "<th class='abc'>DOB</th></tr>";
+
+            for (let i = 0; i < object.length; i++) {
+                output
+                    .innerHTML += //"<tr><th class='xyz'>Sr.No.</th>"+"<th class='xyz'>ActID</th>"+ "<th class='abc'>ActName</th>" + "<th class='abc'>Address</th></tr>"+
+                    "<tr><td class='abc'>" + object[i].order +
+                    "<td class='abc'>" + object[i].accountId + "</td>" +
+                    "<td class='abc'>" + object[i].accountName + "</td>" +
+                    "<td class='abc'>" + object[i].address + "</td>" +
+                    "<td class='abc'>" + object[i].DOB + "</td>";;
+            }
+
+
+
+        }
+      
+    </script>
+</head>
+
+<body bgcolor="powderblue">
+    <div class="heading">
+        <h1>WELCOME TO OUR BANK</h1>
+    </div>
+
+    <div style="position: relative; top: 50px; left : 120px ">
+
+        <div class="left" style="position: absolute; top: 20px;">
+
+            <label style="padding-right: 40px;"><b>Account ID</b> </label>
+            <input type="text" id="accId">
+            <br>
+            <br>
+            <br>
+            <label style="padding-right: 20px;"><b>Account Name</b></label>
+            <input type="text" id="accName">
+            <br>
+            <label style="padding-right: 60px;"><b>Address</b></label>
+            <textarea id="adr" class="add" type="text" cols="40" rows="4" style="position: relative; top: 55px;" ></textarea>
+        </div>
+
+        <div class="right" style="position: relative; left: 700px; top: 20px;">
+
+            <label style="padding-right: 100px;"><b>DOB </b></label>
+            <input type="date" id="dob">
+            <br>
+            <br>
+            <br>
+            <label style="padding-right: 80px;"><b>Gender</b></label>
+            <input type="radio" id="GENDER" name="gender" value="HTML">
+
+            <label for="male">Male</label>
+
+            <input type="radio" id="GENDER" name="gender">
+
+            <label for="female">female</label><br>
+            <br>
+            <br>
+            <label style="padding-right: 40px;" id="acctype"><b>Account Type</b></label>
+            <input type="checkbox">
+            <label>SB</label>
+            <input type="checkbox">
+            <label>FD</label><br>
+            <br>
+            <br>
+
+
+            <div class="check" style="position: relative; left : 135px;">
+                <input type="checkbox">
+
+                <label>CB</label>
+                <input type="checkbox">
+                <label>LOAN</label>
+            <br>
+            <br>
+            </div>
+            <button style="position: relative; right: 200px; top : 50px; padding : 10px 100px 10px; background-color: lightslategrey; color:rgb(250, 225, 0) "
+                onclick="retrieveData()">Submit</button>
+
+
+        </div>
+    </div>
+
+    <div style="border:black; border-width:2px; border-style:solid;padding-bottom: 100px; position: relative ;top :220px; background-color: royalblue;">
+        <div id="msg1" style="text-align: center;"></div>
+
+        <table id="dataTable">
+
+        </table>
+
+    </div>
+
+
+
+</body>
+
+</html>
